@@ -16,7 +16,6 @@ func _ready() -> void:
 	directionY = random_direction()
 	position.y = randf() * get_viewport().size.y
 	position.x = random_direction_x()
-	print(position)
 	if position.x != 0:
 		directionX = -1
 
