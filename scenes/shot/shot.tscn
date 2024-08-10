@@ -1,0 +1,114 @@
+[gd_scene load_steps=23 format=3 uid="uid://bul705tlb2s7g"]
+
+[ext_resource type="Script" path="res://scenes/shot/shot.gd" id="1_5ldvp"]
+[ext_resource type="Texture2D" uid="uid://dkdpp1mb8o3u7" path="res://resources/Missile_1_Flying_000.png" id="2_h2pqx"]
+[ext_resource type="Texture2D" uid="uid://cm35hmmuondg1" path="res://resources/Missile_1_Explosion_000.png" id="2_qrggi"]
+[ext_resource type="Texture2D" uid="uid://cdbdpl6uuis22" path="res://resources/Missile_1_Flying_001.png" id="3_2kac0"]
+[ext_resource type="Texture2D" uid="uid://q8fcans35iky" path="res://resources/Missile_1_Explosion_001.png" id="3_e4iaq"]
+[ext_resource type="Texture2D" uid="uid://sbm8iry7kj6c" path="res://resources/Missile_1_Flying_002.png" id="4_10gkr"]
+[ext_resource type="Texture2D" uid="uid://ct4x71ogsqto" path="res://resources/Missile_1_Explosion_002.png" id="4_cvbr3"]
+[ext_resource type="Texture2D" uid="uid://cb5axat885bqh" path="res://resources/Missile_1_Flying_003.png" id="5_10vv8"]
+[ext_resource type="Texture2D" uid="uid://cuwqh2yyaw0bb" path="res://resources/Missile_1_Explosion_003.png" id="5_iq014"]
+[ext_resource type="Texture2D" uid="uid://c5wlsfc1p7yaw" path="res://resources/Missile_1_Explosion_004.png" id="6_00uoe"]
+[ext_resource type="Texture2D" uid="uid://1krrdg7kt7fx" path="res://resources/Missile_1_Flying_004.png" id="6_wim7x"]
+[ext_resource type="Texture2D" uid="uid://rc5ddt64eun5" path="res://resources/Missile_1_Explosion_005.png" id="7_iumbu"]
+[ext_resource type="Texture2D" uid="uid://bi6w234n5j71t" path="res://resources/Missile_1_Flying_005.png" id="7_k3v32"]
+[ext_resource type="Texture2D" uid="uid://dq4chosk5f4b5" path="res://resources/Missile_1_Flying_006.png" id="8_h8abt"]
+[ext_resource type="Texture2D" uid="uid://cu4waa2g62011" path="res://resources/Missile_1_Explosion_006.png" id="8_k3ov8"]
+[ext_resource type="Texture2D" uid="uid://ccoc38a82ta26" path="res://resources/Missile_1_Flying_007.png" id="9_0k1ke"]
+[ext_resource type="Texture2D" uid="uid://db1kydsqammsm" path="res://resources/Missile_1_Explosion_007.png" id="9_p4xm5"]
+[ext_resource type="Texture2D" uid="uid://bg2q5nhgwnsdi" path="res://resources/Missile_1_Explosion_008.png" id="10_3dxd4"]
+[ext_resource type="Texture2D" uid="uid://2iiiftjr8ftc" path="res://resources/Missile_1_Flying_008.png" id="10_e1d2l"]
+[ext_resource type="Texture2D" uid="uid://csfjqpbatwfag" path="res://resources/Missile_1_Flying_009.png" id="11_41nb0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yxil"]
+size = Vector2(29, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ofieu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qrggi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_e4iaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cvbr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iq014")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_00uoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iumbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k3ov8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p4xm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3dxd4")
+}],
+"loop": false,
+"name": &"Explosion",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h2pqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2kac0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_10gkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_10vv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wim7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k3v32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h8abt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0k1ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_e1d2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_41nb0")
+}],
+"loop": true,
+"name": &"Flying",
+"speed": 20.0
+}]
+
+[node name="Shot" type="Area2D"]
+script = ExtResource("1_5ldvp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -7.5)
+shape = SubResource("RectangleShape2D_1yxil")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.99999, -7)
+scale = Vector2(0.150834, 0.131665)
+sprite_frames = SubResource("SpriteFrames_ofieu")
+animation = &"Explosion"
+autoplay = "Flying"
+frame = 8
+frame_progress = 1.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

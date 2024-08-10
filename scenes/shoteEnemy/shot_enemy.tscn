@@ -1,0 +1,115 @@
+[gd_scene load_steps=23 format=3 uid="uid://bv33f03c1qgld"]
+
+[ext_resource type="Texture2D" uid="uid://c1mx06yjdoxiu" path="res://resources/Missile_2_Flying_000.png" id="1_lkyir"]
+[ext_resource type="Script" path="res://scenes/shoteEnemy/shot_enemy.gd" id="1_n6f3m"]
+[ext_resource type="Texture2D" uid="uid://crgbdc148asmx" path="res://resources/Missile_2_Explosion_000.png" id="1_qqw47"]
+[ext_resource type="Texture2D" uid="uid://x7jedmlwfopa" path="res://resources/Missile_2_Flying_001.png" id="2_axi5i"]
+[ext_resource type="Texture2D" uid="uid://xfpdvg5w7u4" path="res://resources/Missile_2_Explosion_001.png" id="2_fagi7"]
+[ext_resource type="Texture2D" uid="uid://dl7aady450n0h" path="res://resources/Missile_2_Flying_002.png" id="3_t3fhe"]
+[ext_resource type="Texture2D" uid="uid://dx3h0x1bjgdxw" path="res://resources/Missile_2_Explosion_002.png" id="3_yy45y"]
+[ext_resource type="Texture2D" uid="uid://7816d5armd1d" path="res://resources/Missile_2_Explosion_003.png" id="4_ak03o"]
+[ext_resource type="Texture2D" uid="uid://da0f3jdjvib4" path="res://resources/Missile_2_Flying_003.png" id="4_syrwe"]
+[ext_resource type="Texture2D" uid="uid://fi08a12o438c" path="res://resources/Missile_2_Explosion_004.png" id="5_k1640"]
+[ext_resource type="Texture2D" uid="uid://cgauw35vqh047" path="res://resources/Missile_2_Flying_004.png" id="5_s6x0g"]
+[ext_resource type="Texture2D" uid="uid://bu6njitdl5pei" path="res://resources/Missile_2_Explosion_005.png" id="6_11hxj"]
+[ext_resource type="Texture2D" uid="uid://bvhur1gqw34wx" path="res://resources/Missile_2_Flying_005.png" id="6_ysyra"]
+[ext_resource type="Texture2D" uid="uid://doe640tcaa7ug" path="res://resources/Missile_2_Flying_006.png" id="7_mlgad"]
+[ext_resource type="Texture2D" uid="uid://dmqt7gbdjvcps" path="res://resources/Missile_2_Explosion_006.png" id="7_nouf5"]
+[ext_resource type="Texture2D" uid="uid://dugrluwffil1y" path="res://resources/Missile_2_Flying_007.png" id="8_bqsic"]
+[ext_resource type="Texture2D" uid="uid://c3c0mvkohhx2c" path="res://resources/Missile_2_Explosion_007.png" id="8_pvmne"]
+[ext_resource type="Texture2D" uid="uid://dm5eeiybgpsi5" path="res://resources/Missile_2_Flying_008.png" id="9_10vmu"]
+[ext_resource type="Texture2D" uid="uid://n243nb30yjkg" path="res://resources/Missile_2_Explosion_008.png" id="9_iwt2m"]
+[ext_resource type="Texture2D" uid="uid://8u002da3hpg" path="res://resources/Missile_2_Flying_009.png" id="10_gexi0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0pp7"]
+size = Vector2(22, 166)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wg5vt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qqw47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fagi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yy45y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ak03o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k1640")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_11hxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nouf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pvmne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_iwt2m")
+}],
+"loop": false,
+"name": &"Explosion",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lkyir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_axi5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t3fhe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_syrwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s6x0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ysyra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mlgad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bqsic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_10vmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gexi0")
+}],
+"loop": true,
+"name": &"Flying",
+"speed": 20.0
+}]
+
+[node name="ShotEnemy" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_n6f3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -7)
+shape = SubResource("RectangleShape2D_p0pp7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.99997, -4.99998)
+rotation = -3.14159
+scale = Vector2(0.354321, 0.388889)
+sprite_frames = SubResource("SpriteFrames_wg5vt")
+animation = &"Flying"
+autoplay = "Flying"
+frame_progress = 0.689682
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

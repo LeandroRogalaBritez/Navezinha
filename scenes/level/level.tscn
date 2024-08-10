@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdmm1ahdi7npe"]
+
+[ext_resource type="Script" path="res://scenes/level/level.gd" id="1_1eqtv"]
+[ext_resource type="Texture2D" uid="uid://bwgr0cyk2ghqh" path="res://resources/background.jpg" id="2_7o16d"]
+[ext_resource type="PackedScene" uid="uid://ikbnoa4wy6b7" path="res://scenes/ship/ship.tscn" id="2_yrylq"]
+[ext_resource type="Script" path="res://scenes/level/enemy_controller.gd" id="4_8jspi"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_1eqtv")
+
+[node name="Ship" parent="." instance=ExtResource("2_yrylq")]
+position = Vector2(500, 606)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -311
+position = Vector2(578, 331.75)
+scale = Vector2(4.14789, 3.78814)
+texture = ExtResource("2_7o16d")
+
+[node name="EnemyController" type="Node" parent="."]
+script = ExtResource("4_8jspi")
+
+[node name="lbPhase" type="Label" parent="."]
+offset_left = 1080.0
+offset_top = 11.0
+offset_right = 1131.0
+offset_bottom = 34.0
+text = "Fase: 1"
+
+[node name="lbShot" type="Label" parent="."]
+offset_left = 134.0
+offset_top = 610.0
+offset_right = 190.0
+offset_bottom = 633.0
+text = "Tiros: 1"
+
+[node name="lbDamage" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 609.0
+offset_right = 67.0
+offset_bottom = 632.0
+text = "Dano: 50"

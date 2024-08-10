@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ikbnoa4wy6b7"]
+
+[ext_resource type="Script" path="res://scenes/ship/ship.gd" id="1_aa8nb"]
+[ext_resource type="Texture2D" uid="uid://brybl5wpe45vb" path="res://resources/ship.png" id="1_fwpg1"]
+
+[node name="Ship" type="Area2D" groups=["Ship"]]
+position = Vector2(540, 604)
+script = ExtResource("1_aa8nb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(7, -11, 8, 26, 103, 26, 102, -13, 82, -13, 82, -25, 68, -25, 67, -44, 62, -44, 61, -58, 47, -58, 48, -46, 41, -46, 41, -26, 25, -26, 26, -15)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(55, -15)
+scale = Vector2(0.2, 0.161)
+texture = ExtResource("1_fwpg1")
+
+[node name="ShootCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(0.791973, 0.791943, 3.85046e-07, 1)
+offset_left = 7.0
+offset_top = 28.0
+offset_right = 199.0
+offset_bottom = 55.0
+scale = Vector2(0.5, 0.5)
+value = 100.0
+fill_mode = 1
+show_percentage = false

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcd1tl7j23hfx"]
+
+[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_11flj"]
+[ext_resource type="Texture2D" uid="uid://4buqupja8v37" path="res://resources/enemy.png" id="1_byi7y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7twwe"]
+size = Vector2(148, 107.5)
+
+[node name="Enemy" type="Area2D" groups=["Enemy"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_11flj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(81, 62)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_byi7y")
+region_enabled = true
+region_rect = Rect2(0, 0, 666, 488)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(81, 61.75)
+shape = SubResource("RectangleShape2D_7twwe")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(0.164706, 1, 0.384314, 1)
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 747.0
+offset_bottom = 29.0
+scale = Vector2(0.2, 0.2)
+value = 100.0
+fill_mode = 1
+show_percentage = false
