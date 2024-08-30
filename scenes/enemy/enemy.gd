@@ -38,7 +38,7 @@ func update_health_bar():
 	health_bar.value = current_health
 
 func die():
-	if randi() % 100 < 35:
+	if randi() % 100 < 20:
 		var powerup_instance = powerup_scene.instantiate()
 		powerup_instance.position = position
 		get_tree().root.add_child(powerup_instance)
