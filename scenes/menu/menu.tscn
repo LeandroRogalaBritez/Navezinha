@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bel8r564ie54p"]
+[gd_scene load_steps=4 format=3 uid="uid://bel8r564ie54p"]
 
 [ext_resource type="Script" path="res://scenes/menu/lb_game_name.gd" id="1_kr2al"]
 [ext_resource type="Script" path="res://scenes/menu/bt_start.gd" id="2_a45ka"]
+[ext_resource type="Script" path="res://scenes/menu/bt_view_ship.gd" id="3_t0p0e"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -29,4 +30,14 @@ offset_bottom = 276.0
 text = "INICIAR"
 script = ExtResource("2_a45ka")
 
+[node name="BtViewShip" type="Button" parent="."]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 301.0
+offset_right = 629.0
+offset_bottom = 332.0
+text = "VER NAVE"
+script = ExtResource("3_t0p0e")
+
 [connection signal="button_down" from="BtStart" to="BtStart" method="_on_button_down"]
+[connection signal="button_down" from="BtViewShip" to="BtViewShip" method="_on_button_down"]
