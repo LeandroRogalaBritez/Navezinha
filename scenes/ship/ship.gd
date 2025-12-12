@@ -9,8 +9,6 @@ var shot_scene: PackedScene
 @export var max_health: int = 100
 var current_health: int
 @onready var health_bar = $HealthBar
-@onready var lb_shot = $lbShot
-@onready var lb_damage = $lbDamage
 var number_shoot = 1
 var extra_damage = 0
 var shot_timer: Timer
