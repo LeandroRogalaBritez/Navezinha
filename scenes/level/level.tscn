@@ -40,3 +40,66 @@ offset_top = 609.0
 offset_right = 67.0
 offset_bottom = 632.0
 text = "Dano: 50"
+
+[node name="lbLevel" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 31.0
+text = "Nível: 1"
+
+[node name="lbXP" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 28.0
+offset_right = 112.0
+offset_bottom = 51.0
+text = "XP: 0/60"
+
+[node name="lbPoints" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 48.0
+offset_right = 111.0
+offset_bottom = 71.0
+text = "Pontos: 0"
+
+[node name="lbStrength" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 86.0
+offset_right = 117.0
+offset_bottom = 109.0
+text = "Força: 0"
+
+[node name="lbSpeed" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 108.0
+offset_right = 146.0
+offset_bottom = 131.0
+text = "Velocidade: 0"
+
+[node name="lbDefense" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 130.0
+offset_right = 127.0
+offset_bottom = 153.0
+text = "Defesa: 0"
+
+[node name="btnStrength" type="Button" parent="."]
+offset_left = 180.0
+offset_top = 82.0
+offset_right = 260.0
+offset_bottom = 106.0
+text = "+ Força"
+
+[node name="btnSpeed" type="Button" parent="."]
+offset_left = 180.0
+offset_top = 108.0
+offset_right = 277.0
+offset_bottom = 132.0
+text = "+ Velocidade"
+
+[node name="btnDefense" type="Button" parent="."]
+offset_left = 180.0
+offset_top = 134.0
+offset_right = 262.0
+offset_bottom = 158.0
+text = "+ Defesa"
