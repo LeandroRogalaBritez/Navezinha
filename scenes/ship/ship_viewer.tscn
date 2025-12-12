@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://cifs70cgg00xd"]
+
+[ext_resource type="Texture2D" uid="uid://brybl5wpe45vb" path="res://resources/ship.png" id="1_9v113"]
+[ext_resource type="Script" path="res://scenes/ship/ship_viewer.gd" id="1_zuk04"]
+
+[node name="ShipViewer" type="Node2D"]
+script = ExtResource("1_zuk04")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(540, 360)
+scale = Vector2(0.2, 0.161)
+texture = ExtResource("1_9v113")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Instruction" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -410.0
+offset_top = 14.0
+offset_right = -14.0
+offset_bottom = 48.0
+text = "Use A/D ou seta para girar. A nave gira lentamente sozinha."
+horizontal_alignment = 2
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -66.0
+offset_right = 64.0
+offset_bottom = -35.0
+text = "VOLTAR"
+
+[connection signal="pressed" from="CanvasLayer/Control/BackButton" to="." method="_on_back_button_pressed"]
